@@ -21,5 +21,21 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                @if(auth()->check())
+                <form method="post" action="{{route('replyToThread', $thread)}}">
+                    {{csrf_field()}}
+                    <div class="form-group">
+                        <textarea name="body" class="form-control" id="body" rows="5" placeholder="Have something to say?"></textarea>
+                    </div>
+                    <button class="btn btn-primary">Submit Comment</button>
+                </form>
+                @else
+                <div> <p class="text-center">Please <a href="{{ route('login') }}">LogIn</a> to reply</p> </div>
+                @endif
+            </div>
+        </div>
+
     </div>
 @endsection

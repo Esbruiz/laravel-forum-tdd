@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/threads', 'ThreadsController@index')->name('allThreads');
 
+Route::post('/threads', 'ThreadsController@store')->name('storeThread');
+
 Route::get('/threads/{thread}', 'ThreadsController@show')->name('singleThread');
 
-Route::post('/threads/{thread}/reply', 'RepliesController@store')->name('replyToThread');
+Route::POST('/threads/{thread}/reply', 'RepliesController@store')->name('replyToThread');
